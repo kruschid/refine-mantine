@@ -1,4 +1,24 @@
-# Mantine Vite template
+# Refine-Mantine
+
+# Login
+
+- props
+    - `useEmailField`: `boolean`
+        - renders username input field with `type="email"` if 
+    - `method`: `oauth` | `password` | `otp` | `mfa`
+        - `oauth`: no credentials fields will be rendered but `providers` prop is mandatory 
+        - `password`:
+            - email/username and password fields will be rendered
+            - can be combined with oauth providers prop
+        - `otp`
+            - only email/username field will be rendered
+            - a one-time-password will be requested after hitting submit
+            - can be combined with oauth providers prop
+        - `mfa`
+            - email/username and password fields will be rendered
+            - a one-time-password will be requested after hitting submit
+    - `providers`: `OAuthProviderMantine[]`
+        - similar to `OAuthProvider` but with `buttonProps` for easier customization
 
 ## Features
 

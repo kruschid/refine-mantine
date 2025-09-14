@@ -1,41 +1,97 @@
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
 
-import React, { useEffect } from 'react';
-import { ColorSchemeScript, MantineProvider, useMantineColorScheme } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
+import { Refine, type ResourceProps } from '@refinedev/core';
+import dataProvider from "@refinedev/simple-rest";
+import type { Preview } from "@storybook/react";
+import { IconBrandMantine, IconCategory, IconColumns, IconDeviceDesktopFilled, IconDevices, IconReceiptEuroFilled, IconUsers } from "@tabler/icons-react";
+import { BrowserRouter } from 'react-router';
+import { authProvider } from "../src/providers/authProvider";
+import { i18nProvider } from "../src/providers/i18nProvider";
+import { notificationProvider } from "../src/providers/notificationProvider";
 import { theme } from '../src/theme';
 
-export const parameters = {
-  layout: 'fullscreen',
-  options: {
-    showPanel: false,
-    storySort: (a, b) => a.title.localeCompare(b.title, undefined, { numeric: true }),
+const resources: ResourceProps[] = [{
+  name: "products",
+  list: "/products",
+  meta: {
+    label: "Products",
+    icon: <IconColumns />,
   },
-  backgrounds: { disable: true },
-};
+}, {
+  name: "laptops-desktops",
+  list: "/products/category/1",
+  meta: {
+    label: "Laptops & Desktops",
+    icon: <IconDeviceDesktopFilled />,
+    parent: "products"
+  },
+},  {
+  name: "smartphone-tablets",
+  list: "/products/category/2",
+  meta: {
+    label: "Smartphone & Tablets",
+    icon: <IconDevices />,
+    parent: "products"
+  },
+}, {
+  name: "categories",
+  list: "/categories",
+  meta: {
+    label: "Categories",
+    icon: <IconCategory />,
+  }
+}, {
+  name: "clients",
+  list: "/clients",
+  meta: {
+    label: "Clients",
+    icon: <IconUsers />,
+  }
+}, {
+  name: "invoices",
+  list: "/invoices",
+  meta: {
+    label: "Invoices",
+    icon: <IconReceiptEuroFilled />
+  }
+}];
 
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Mantine color scheme',
-    defaultValue: 'light',
-    toolbar: {
-      icon: 'mirror',
-      items: [
-        { value: 'light', title: 'Light' },
-        { value: 'dark', title: 'Dark' },
-      ],
+const preview: Preview = {
+  parameters: {
+    layout: 'fullscreen',
+    options: {
+      showPanel: false,
     },
+    backgrounds: { disable: true },
   },
-};
+  decorators: [
+    (Story, _ctx) => (
+      <BrowserRouter>
+        <MantineProvider theme={theme}>
+          <Notifications position="top-right"/>
+          <Refine
+            authProvider={authProvider}
+            dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+            notificationProvider={notificationProvider}
+            resources={resources}
+            i18nProvider={i18nProvider}
+            options={{
+              warnWhenUnsavedChanges: true,
+              title: {
+                icon: <IconBrandMantine size={32} />,
+                text: "Refine-Mantine",
+              },
+            }}
+          >
+            <Story />
+          </Refine>
+        </MantineProvider>
+      </BrowserRouter>
+    )
+  ], 
+}
 
-export const decorators = [
-  (renderStory: any, context: any) => {
-    const scheme = (context.globals.theme || 'light') as 'light' | 'dark';
-    return (
-      <MantineProvider theme={theme} forceColorScheme={scheme}>
-        <ColorSchemeScript />
-        {renderStory()}
-      </MantineProvider>
-    );
-  },
-];
+export default preview;

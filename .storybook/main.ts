@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     enableCrashReports: false,
   },
   stories: ['../src/**/*.mdx', '../src/**/*.story.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-themes'],
+  addons: ['@storybook/addon-themes', "@storybook/addon-storysource"],
   framework: {
     name: '@storybook/react-vite',
     options: {},
