@@ -12,6 +12,12 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  viteFinal: async (config, { configType }) => {
+    if (configType === "PRODUCTION") {
+      config.base = "/refine-mantine/";
+    }
+    return config;
+  },
 };
 
 export default config;
