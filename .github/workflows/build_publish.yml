@@ -59,7 +59,7 @@ jobs:
         fi
 
         echo "✅ Version format is valid: $TAG_VERSION"
-        yarn version $TAG_VERSION --no-git-tag-version
+        yarn version set $TAG_VERSION
 
     - name: Publish to npm
       if: github.event_name == 'release'
