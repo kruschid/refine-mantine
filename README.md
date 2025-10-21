@@ -1,54 +1,21 @@
 # Refine-Mantine
 
-# Login
+## Refine Mantine Components
 
-- props
-    - `useEmailField`: `boolean`
-        - renders username input field with `type="email"` if 
-    - `method`: `oauth` | `password` | `otp` | `mfa`
-        - `oauth`: no credentials fields will be rendered but `providers` prop is mandatory 
-        - `password`:
-            - email/username and password fields will be rendered
-            - can be combined with oauth providers prop
-        - `otp`
-            - only email/username field will be rendered
-            - a one-time-password will be requested after hitting submit
-            - can be combined with oauth providers prop
-        - `mfa`
-            - email/username and password fields will be rendered
-            - a one-time-password will be requested after hitting submit
-    - `providers`: `OAuthProviderMantine[]`
-        - similar to `OAuthProvider` but with `buttonProps` for easier customization
+This project provides ready-to-use [Mantine v8](https://mantine.dev/) UI components and utilities built for [Refine v5](https://refine.dev/) applications.
+It aims to accelerate development by offering a collection of prebuilt components such as layouts, CRUD views, tables, buttons, and authentication screens, following both Refine and Mantine best practices.
 
-## Features
+### Features
 
-This template comes with the following features:
+* Prebuilt UI components for rapid Refine project development
+* CRUD and layout templates to simplify dashboard and admin tool creation
+* Authentication-ready views for common login and registration flows
+* Composable and easily customizable component design
+* Storybook documentation for previewing and testing components
 
-- [PostCSS](https://postcss.org/) with [mantine-postcss-preset](https://mantine.dev/styles/postcss-preset)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Storybook](https://storybook.js.org/)
-- [Vitest](https://vitest.dev/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
+**Storybook:** [https://kruschid.github.io/refine-mantine/](https://kruschid.github.io/refine-mantine/)
 
-## npm scripts
+### Project Status
 
-## Build and dev scripts
-
-- `dev` – start development server
-- `build` – build production version of the app
-- `preview` – locally preview production build
-
-### Testing scripts
-
-- `typecheck` – checks TypeScript types
-- `lint` – runs ESLint
-- `prettier:check` – checks files with Prettier
-- `vitest` – runs vitest tests
-- `vitest:watch` – starts vitest watch
-- `test` – runs `vitest`, `prettier:check`, `lint` and `typecheck` scripts
-
-### Other scripts
-
-- `storybook` – starts storybook dev server
-- `storybook:build` – build production storybook bundle to `storybook-static`
-- `prettier:write` – formats all files with Prettier
+**Early development stage:** The project is actively being developed, and APIs or component structures may change frequently.
+Feedback, suggestions, and contributions are welcome as the project evolves.
