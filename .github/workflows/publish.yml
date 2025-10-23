@@ -29,6 +29,9 @@ jobs:
           cache: yarn
       - name: Check if release is needed
         id: check_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npx semantic-release --dry-run > result.log || true
           if grep -q "No release" result.log; then
