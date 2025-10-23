@@ -26,11 +26,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+          cache: yarn
+      - name: Check if release is needed
+        id: check_release
+        run: |
+          npx semantic-release --dry-run > result.log || true
+          if grep -q "No release" result.log; then
+            echo "release_needed=false" >> $GITHUB_ENV
+          else
+            echo "release_needed=true" >> $GITHUB_ENV
+          fi
       - name: Install dependencies & Build
+        if: env.release_needed == 'true'
         run: |
           yarn install --check-cache
           yarn build
       - name: Release
+        if: env.release_needed == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
