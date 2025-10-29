@@ -32,13 +32,15 @@ export const Cards = () => {
       <SimpleGrid cols={{
         xs: 1,
         sm: 3,
-        lg: 6,
+        md: 4,
+        lg: 5,
+        xl: 6,
       }}>
         {result.data.map(user => (
           <Card key={user.id} withBorder padding="lg" radius="md">
             <Card.Section withBorder inheritPadding py="xs" mb="md">
-              <Group justify="space-between">
-                <Text fw={500}>{user.email}</Text>
+              <Group justify="space-between" wrap="nowrap">
+                <Text fw={500} truncate>{user.email}</Text>
                 <Menu withinPortal position="bottom-end" shadow="sm">
                   <Menu.Target>
                     <ActionIcon variant="subtle" color="gray">
