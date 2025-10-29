@@ -81,7 +81,6 @@ export const Cards = () => {
             </Text>
 
             <Text c="dimmed" fz="sm" mt="md">
-              Skills:{' '}
               {user.skills.map(skill =>
                 <Badge key={skill} variant="default" me="2">{skill}</Badge>
               )}
