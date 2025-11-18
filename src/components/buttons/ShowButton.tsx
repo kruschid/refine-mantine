@@ -70,6 +70,7 @@ export const ShowButton: React.FC<ShowButtonProps> = ({
         variant="default"
         disabled={disabled}
         title={title}
+        {...actionProps}
         {...actionIconProps}
       >
         <IconEye size={18} {...iconProps} />
@@ -90,6 +91,7 @@ export const ShowButton: React.FC<ShowButtonProps> = ({
         disabled={disabled}
         leftSection={<IconEye size={18} {...iconProps} />}
         title={title}
+        {...actionProps}
         {...buttonProps}
       >
         {children ?? label}

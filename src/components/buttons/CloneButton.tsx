@@ -70,6 +70,7 @@ export const CloneButton: React.FC<CloneButtonProps> = ({
         disabled={disabled}
         title={title}
         aria-label={label}
+        {...actionProps}
         {...actionIconProps}
       >
         <IconLibraryPlus size={18} {...iconProps} />
@@ -90,6 +91,7 @@ export const CloneButton: React.FC<CloneButtonProps> = ({
         disabled={disabled}
         leftSection={<IconLibraryPlus size={18} {...iconProps} />}
         title={title}
+        {...actionProps}
         {...buttonProps}
       >
         {children ?? label}
