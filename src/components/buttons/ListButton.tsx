@@ -1,22 +1,24 @@
 import {
   ActionIcon,
   type ActionIconProps,
-  Anchor,
-  type AnchorProps,
   Button,
   type ButtonProps,
+  Menu,
+  type MenuItemProps
 } from "@mantine/core";
 import { useListButton } from "@refinedev/core";
 import type { RefineListButtonProps } from "@refinedev/ui-types";
 import { IconList, type IconProps } from "@tabler/icons-react";
 import type React from "react";
+import { useCallback } from "react";
 
 export type ListButtonProps = RefineListButtonProps<{
   iconProps?: IconProps;
-  anchorProps?: AnchorProps;
   actionIconProps?: ActionIconProps;
   buttonProps?: ButtonProps;
   disabled?: boolean;
+  menuItem?: boolean;
+  menuItemProps?: MenuItemProps;
 }>;
 
 export const ListButton: React.FC<ListButtonProps> = ({
@@ -28,8 +30,9 @@ export const ListButton: React.FC<ListButtonProps> = ({
   iconProps,
   actionIconProps,
   buttonProps,
-  anchorProps,
   disabled: disabledFromProps,
+  menuItem,
+  menuItemProps,
   onClick,
 }) => {
   const {
@@ -45,47 +48,58 @@ export const ListButton: React.FC<ListButtonProps> = ({
     meta,
   });
 
-  if (hidden) return null;
-
   const disabled = disabledFromProps || disabledFromHook;
 
-  return (
-    <Anchor
-      // biome-ignore lint/suspicious/noExplicitAny: that's fine
-      component={LinkComponent as any}
-      to={to}
-      onClick={(e: React.PointerEvent<HTMLButtonElement>) => {
-        if (disabled) {
-          e.preventDefault();
-          return;
-        }
-        if (onClick) {
-          e.preventDefault();
-          onClick(e);
-        }
-      }}
-      {...anchorProps}
-    >
-      {hideText ? (
-        <ActionIcon
-          variant="default"
-          disabled={disabled}
-          title={title}
-          {...actionIconProps}
-        >
-          <IconList size={18} {...iconProps} />
-        </ActionIcon>
-      ) : (
-        <Button
-          variant="default"
-          disabled={disabled}
-          leftSection={<IconList size={18} {...iconProps} />}
-          title={title}
-          {...buttonProps}
-        >
-          {children ?? label}
-        </Button>
-      )}
-    </Anchor>
-  );
+  const handleClick = useCallback((e: React.PointerEvent<HTMLButtonElement>) => {
+    if (disabled) {
+      e.preventDefault();
+      return;
+    }
+    if (onClick) {
+      e.preventDefault();
+      onClick(e);
+    }
+  }, [disabled, onClick]);
+
+  const actionProps = {
+    // biome-ignore lint/suspicious/noExplicitAny: that's fine
+    component: LinkComponent as any,
+    onClick: handleClick,
+    to,
+  }
+  
+  if (hidden) return null;
+
+  return hideText ? (
+      <ActionIcon
+        variant="default"
+        disabled={disabled}
+        title={title}
+        {...actionProps}
+        {...actionIconProps}
+      >
+        <IconList size={18} {...iconProps} />
+      </ActionIcon>
+    ) :  menuItem ?  (
+      <Menu.Item
+        disabled={disabled}
+        leftSection={<IconList size={14} {...iconProps} />}
+        title={title}
+        {...actionProps}
+        {...menuItemProps}
+      >
+        {children ?? label}
+      </Menu.Item>
+    ) : (
+      <Button
+        variant="default"
+        disabled={disabled}
+        leftSection={<IconList size={18} {...iconProps} />}
+        title={title}
+        {...actionProps}
+        {...buttonProps}
+      >
+        {children ?? label}
+      </Button>
+    );
 };
