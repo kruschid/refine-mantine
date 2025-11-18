@@ -79,9 +79,8 @@ export const EditButton: React.FC<EditButtonProps> = ({
         </ActionIcon>
       ) :  menuItem ?  (
         <Menu.Item
-          variant="default"
           disabled={disabled}
-          leftSection={<IconPencil size={18} {...iconProps} />}
+          leftSection={<IconPencil size={14} {...iconProps} />}
           title={title}
           {...actionProps}
           {...menuItemProps}

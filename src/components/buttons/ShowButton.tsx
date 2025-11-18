@@ -76,9 +76,8 @@ export const ShowButton: React.FC<ShowButtonProps> = ({
       </ActionIcon>
     ) : menuItem ?  (
       <Menu.Item
-        variant="default"
         disabled={disabled}
-        leftSection={<IconEye size={18} {...iconProps} />}
+        leftSection={<IconEye size={14} {...iconProps} />}
         title={title}
         {...actionProps}
         {...menuItemProps}

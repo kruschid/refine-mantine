@@ -72,9 +72,8 @@ export const CreateButton: React.FC<CreateButtonProps> = ({
       </ActionIcon>
     ) : menuItem ?  (
       <Menu.Item
-        variant="default"
         disabled={disabled}
-        leftSection={<IconSquarePlus size={18} {...iconProps} />}
+        leftSection={<IconSquarePlus size={14} {...iconProps} />}
         title={title}
         {...actionProps}
         {...menuItemProps}

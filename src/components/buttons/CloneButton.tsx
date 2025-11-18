@@ -76,9 +76,8 @@ export const CloneButton: React.FC<CloneButtonProps> = ({
       </ActionIcon>
     ) : menuItem ?  (
       <Menu.Item
-        variant="default"
         disabled={disabled}
-        leftSection={<IconLibraryPlus size={18} {...iconProps} />}
+        leftSection={<IconLibraryPlus size={14} {...iconProps} />}
         title={title}
         {...actionProps}
         {...menuItemProps}

@@ -102,10 +102,10 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
           </ActionIcon>
         ) :  menuItem ?  (
           <Menu.Item
-            variant="default"
+            color="red"
             onClick={handlers.toggle}
             disabled={disabled}
-            leftSection={<IconTrash size={18} {...iconProps} />}
+            leftSection={<IconTrash size={14} {...iconProps} />}
             title={title}
             closeMenuOnClick={false}
             {...menuItemProps}
