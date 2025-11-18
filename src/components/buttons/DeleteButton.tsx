@@ -4,6 +4,8 @@ import {
   Button,
   type ButtonProps,
   Group,
+  Menu,
+  type MenuItemProps,
   Popover,
   type PopoverProps,
   Text,
@@ -20,6 +22,8 @@ export type DeleteButtonProps = RefineDeleteButtonProps<{
   actionIconProps?: ActionIconProps;
   buttonProps?: ButtonProps;
   disabled?: boolean;
+  menuItem?: boolean;
+  menuItemProps?: MenuItemProps;
 }>;
 
 export const DeleteButton: React.FC<DeleteButtonProps> = ({
@@ -42,6 +46,8 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
   actionIconProps,
   buttonProps,
   disabled: disabledFromProps,
+  menuItem,
+  menuItemProps,
   onSuccess,
 }) => {
   const {
@@ -94,6 +100,18 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
           >
             <IconTrash size={18} {...iconProps} />
           </ActionIcon>
+        ) :  menuItem ?  (
+          <Menu.Item
+            variant="default"
+            onClick={handlers.toggle}
+            disabled={disabled}
+            leftSection={<IconTrash size={18} {...iconProps} />}
+            title={title}
+            closeMenuOnClick={false}
+            {...menuItemProps}
+          >
+            {children ?? label}
+          </Menu.Item>
         ) : (
           <Button
             color="red"
