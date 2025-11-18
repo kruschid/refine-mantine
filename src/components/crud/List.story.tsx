@@ -3,6 +3,9 @@ import { useList } from "@refinedev/core";
 import { IconDots, IconEye, IconPencil, IconTrash } from "@tabler/icons-react";
 import { Default } from "../table/Table.story";
 import { List } from "./List";
+import { EditButton } from "../buttons/EditButton";
+import { ShowButton } from "../buttons/ShowButton";
+import { DeleteButton } from "../buttons/DeleteButton";
 
 export default {
   title: 'Crud/List',
@@ -48,18 +51,9 @@ export const Cards = () => {
                     </ActionIcon>
                   </Menu.Target>
                   <Menu.Dropdown>
-                    <Menu.Item leftSection={<IconPencil size={14} />}>
-                      Edit
-                    </Menu.Item>
-                    <Menu.Item leftSection={<IconEye size={14} />}>
-                      Show
-                    </Menu.Item>
-                    <Menu.Item
-                      leftSection={<IconTrash size={14} />}
-                      color="red"
-                    >
-                      Delete
-                    </Menu.Item>
+                    <EditButton menuItem />
+                    <ShowButton menuItem />
+                    <DeleteButton menuItem />
                   </Menu.Dropdown>
                 </Menu>
               </Group>
