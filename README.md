@@ -5,6 +5,12 @@
 This project provides ready-to-use [Mantine v8](https://mantine.dev/) UI components and utilities built for [Refine v5](https://refine.dev/) applications.
 It aims to accelerate development by offering a collection of prebuilt components such as layouts, CRUD views, tables, buttons, and authentication screens, following both Refine and Mantine best practices.
 
+### Setup
+
+``` sh
+npm i refine-mantine
+```
+
 ### Features
 
 * Prebuilt UI components for rapid Refine project development
