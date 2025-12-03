@@ -49,7 +49,6 @@ export const Default = () => {
     onChange: (value: string | null) => void;
   }) => (
     <Select
-      label="Category"
       data={categories.options}
       value={p.value ?? null}
       onChange={p.onChange}
