@@ -58,7 +58,6 @@ export const List: React.FC<ListProps> = (props) => {
 
   const createButtonProps: CreateButtonProps | undefined = isCreateButtonVisible
     ? ({
-        size: "sm",
         resource: identifier,
         ...createButtonPropsFromProps,
       } as const)
