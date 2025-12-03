@@ -1,3 +1,4 @@
+import { useEnter } from "@/hooks/useEnter";
 import { ActionIcon, Group, Menu, Stack, TextInput } from "@mantine/core";
 import type { CrudOperators } from "@refinedev/core";
 import { IconCheck, IconFilter, IconX } from "@tabler/icons-react";
@@ -54,6 +55,8 @@ export const ColumnFilter = <T extends object>(p: { column: Column<T> }) => {
     close();
   };
 
+  const confirmRef = useEnter<HTMLInputElement>(save);
+
   return (
     <Menu
       opened={!!state}
@@ -81,6 +84,7 @@ export const ColumnFilter = <T extends object>(p: { column: Column<T> }) => {
               <FilterComponent value={state?.value} onChange={handleChange} />
             ) : (
               <TextInput
+                ref={confirmRef}
                 autoComplete="off"
                 value={state.value}
                 onChange={(e) => handleChange(e.target.value)}
