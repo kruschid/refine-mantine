@@ -84,7 +84,8 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
       opened={opened}
       onChange={handlers.toggle}
       withArrow
-      withinPortal
+      withinPortal={false}
+      withOverlay
       disabled={disabled}
       {...popoverProps}
     >
