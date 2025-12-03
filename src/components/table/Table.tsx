@@ -1,4 +1,4 @@
-import { Box, Group, Table as MantineTable, Pagination } from "@mantine/core";
+import { Box, Group, Table as MantineTable, Pagination, TableProps } from "@mantine/core";
 import type { BaseRecord, HttpError } from "@refinedev/core";
 import type { UseTableReturnType } from "@refinedev/react-table";
 import { flexRender } from "@tanstack/react-table";
@@ -10,17 +10,24 @@ export const Table = <
   TError extends HttpError = HttpError,
 >({
   props,
+  tableProps,
 }: {
   props: UseTableReturnType<TData, TError>;
+  tableProps?: TableProps;
 }) => (
   <>
     <MantineTable.ScrollContainer minWidth={500}>
-      <MantineTable highlightOnHover>
+      <MantineTable highlightOnHover {...tableProps}>
         <MantineTable.Thead>
           {props.reactTable.getHeaderGroups().map((headerGroup) => (
             <MantineTable.Tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <MantineTable.Th key={header.id}>
+                <MantineTable.Th
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  rowSpan={header.rowSpan}
+                  style={{width: header.getSize()}}
+                >
                   {!header.isPlaceholder && (
                     <Group gap="xs" wrap="nowrap">
                       <Box>
