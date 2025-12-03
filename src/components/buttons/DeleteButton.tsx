@@ -15,6 +15,7 @@ import { useDeleteButton } from "@refinedev/core";
 import type { RefineDeleteButtonProps } from "@refinedev/ui-types";
 import { type IconProps, IconTrash } from "@tabler/icons-react";
 import type React from "react";
+import { useCallback } from "react";
 
 export type DeleteButtonProps = RefineDeleteButtonProps<{
   iconProps?: IconProps;
@@ -74,6 +75,11 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
   });
 
   const [opened, handlers] = useDisclosure(false);
+
+  const handleConfirm = useCallback(() => {
+    onConfirm();
+    handlers.close();
+  }, [onConfirm, handlers]);
 
   if (hidden) return null;
 
@@ -136,10 +142,7 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
           </Button>
           <Button
             color="red"
-            onClick={() => {
-              onConfirm();
-              handlers.close();
-            }}
+            onClick={handleConfirm}
             autoFocus
             size="xs"
           >
