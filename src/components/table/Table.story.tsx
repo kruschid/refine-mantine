@@ -30,7 +30,7 @@ interface CategoryRecord {
 type ProductRecordKey = keyof ProductRecord;
 
 const useTableProps = () => {
-const categories = useSelect<CategoryRecord>({
+  const categories = useSelect<CategoryRecord>({
     resource: "categories",
     optionLabel: category => category.title, 
     optionValue: category => category.id.toString(),
