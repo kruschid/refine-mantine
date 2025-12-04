@@ -1,9 +1,12 @@
-import { Badge, NumberFormatter, Select, Text } from "@mantine/core";
+import { ActionIconGroup, Badge, NumberFormatter, Select, Text } from "@mantine/core";
 import { type CrudOperators, useSelect } from "@refinedev/core";
 import { useTable } from "@refinedev/react-table";
 import type { Meta } from "@storybook/react";
 import type { ColumnDef } from "@tanstack/react-table";
-import { use, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
+import { DeleteButton } from "../buttons/DeleteButton";
+import { EditButton } from "../buttons/EditButton";
+import { ShowButton } from "../buttons/ShowButton";
 import { Table } from "./Table";
 
 export default {
@@ -116,6 +119,22 @@ const useTableProps = () => {
           <Badge size="sm" variant="default">
             {categoryMap[row.original.category.id] ?? "uncategorized"} 
           </Badge>
+      },
+      {
+        id: "id" satisfies ProductRecordKey,
+        enableColumnFilter: false,
+        enableSorting: false,
+        header: "Actions",
+        cell: ({ row }) => (
+          <ActionIconGroup>
+            <ShowButton hideText recordItemId={row.original.id} />
+            <EditButton
+              hideText
+              recordItemId={row.original.id}
+            />
+            <DeleteButton hideText recordItemId={row.original.id} />
+          </ActionIconGroup>
+        ),
       },
     ],
     [categoryMap, CategoryFilter],
