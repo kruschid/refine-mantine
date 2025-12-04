@@ -3,7 +3,7 @@ import { type CrudOperators, useSelect } from "@refinedev/core";
 import { useTable } from "@refinedev/react-table";
 import type { Meta } from "@storybook/react";
 import type { ColumnDef } from "@tanstack/react-table";
-import { useCallback, useMemo } from "react";
+import { use, useCallback, useMemo } from "react";
 import { Table } from "./Table";
 
 export default {
@@ -29,8 +29,8 @@ interface CategoryRecord {
 
 type ProductRecordKey = keyof ProductRecord;
 
-export const Default = () => {
-  const categories = useSelect<CategoryRecord>({
+const useTableProps = () => {
+const categories = useSelect<CategoryRecord>({
     resource: "categories",
     optionLabel: category => category.title, 
     optionValue: category => category.id.toString(),
@@ -139,7 +139,29 @@ export const Default = () => {
     columns,
   });
 
+  return tableProps;
+}
+
+export const Default = () => {
+  const tableProps = useTableProps();
+
   return (
     <Table props={tableProps} />
+  );
+}
+
+export const Striped = () => {
+  const tableProps = useTableProps();
+
+  return (
+    <Table props={tableProps} tableProps={{ striped: true }} />
+  );
+}
+
+export const StickyHeader = () => {
+  const tableProps = useTableProps();
+
+  return (
+    <Table props={tableProps} tableProps={{ stickyHeader: true }} />
   );
 }

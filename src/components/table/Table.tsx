@@ -1,4 +1,4 @@
-import { Box, Group, Table as MantineTable, Pagination, TableProps } from "@mantine/core";
+import { Box, Group, Table as MantineTable, Pagination, TableProps, TableScrollContainerProps } from "@mantine/core";
 import type { BaseRecord, HttpError } from "@refinedev/core";
 import type { UseTableReturnType } from "@refinedev/react-table";
 import { flexRender } from "@tanstack/react-table";
@@ -16,50 +16,48 @@ export const Table = <
   tableProps?: TableProps;
 }) => (
   <>
-    <MantineTable.ScrollContainer minWidth={500}>
-      <MantineTable highlightOnHover {...tableProps}>
-        <MantineTable.Thead>
-          {props.reactTable.getHeaderGroups().map((headerGroup) => (
-            <MantineTable.Tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <MantineTable.Th
-                  key={header.id}
-                  colSpan={header.colSpan}
-                  rowSpan={header.rowSpan}
-                  style={{width: header.getSize()}}
-                >
-                  {!header.isPlaceholder && (
+    <MantineTable {...tableProps}>
+      <MantineTable.Thead>
+        {props.reactTable.getHeaderGroups().map((headerGroup) => (
+          <MantineTable.Tr key={headerGroup.id}>
+            {headerGroup.headers.map((header) => (
+              <MantineTable.Th
+                key={header.id}
+                colSpan={header.colSpan}
+                rowSpan={header.rowSpan}
+                style={{width: header.getSize()}}
+              >
+                {!header.isPlaceholder && (
+                  <Group gap="xs" wrap="nowrap">
+                    <Box>
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext(),
+                      )}
+                    </Box>
                     <Group gap="xs" wrap="nowrap">
-                      <Box>
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
-                      </Box>
-                      <Group gap="xs" wrap="nowrap">
-                        <ColumnSorter column={header.column} />
-                        <ColumnFilter column={header.column} />
-                      </Group>
+                      <ColumnSorter column={header.column} />
+                      <ColumnFilter column={header.column} />
                     </Group>
-                  )}
-                </MantineTable.Th>
-              ))}
-            </MantineTable.Tr>
-          ))}
-        </MantineTable.Thead>
-        <MantineTable.Tbody>
-          {props.reactTable.getRowModel().rows.map((row) => (
-            <MantineTable.Tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <MantineTable.Td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </MantineTable.Td>
-              ))}
-            </MantineTable.Tr>
-          ))}
-        </MantineTable.Tbody>
-      </MantineTable>
-    </MantineTable.ScrollContainer>
+                  </Group>
+                )}
+              </MantineTable.Th>
+            ))}
+          </MantineTable.Tr>
+        ))}
+      </MantineTable.Thead>
+      <MantineTable.Tbody>
+        {props.reactTable.getRowModel().rows.map((row) => (
+          <MantineTable.Tr key={row.id}>
+            {row.getVisibleCells().map((cell) => (
+              <MantineTable.Td key={cell.id}>
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </MantineTable.Td>
+            ))}
+          </MantineTable.Tr>
+        ))}
+      </MantineTable.Tbody>
+    </MantineTable>
     <Group justify="flex-end" mt="xl">
       <Pagination
         total={props.refineCore.pageCount}
