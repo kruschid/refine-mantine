@@ -1,4 +1,4 @@
-import { Box, Group, Table as MantineTable, Pagination, TableProps, TableScrollContainerProps } from "@mantine/core";
+import { Box, Group, Table as MantineTable, Pagination, type TableProps } from "@mantine/core";
 import type { BaseRecord, HttpError } from "@refinedev/core";
 import type { UseTableReturnType } from "@refinedev/react-table";
 import { flexRender } from "@tanstack/react-table";
