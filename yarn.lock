@@ -3533,6 +3533,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dayjs@npm:^1.11.19":
+  version: 1.11.19
+  resolution: "dayjs@npm:1.11.19"
+  checksum: 10c0/7d8a6074a343f821f81ea284d700bd34ea6c7abbe8d93bce7aba818948957c1b7f56131702e5e890a5622cdfc05dcebe8aed0b8313bdc6838a594d7846b0b000
+  languageName: node
+  linkType: hard
+
 "debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
@@ -7183,6 +7190,7 @@ __metadata:
     "@types/react": "npm:^19.2.2"
     "@types/react-dom": "npm:^19.2.2"
     "@vitejs/plugin-react": "npm:^5.1.0"
+    dayjs: "npm:^1.11.19"
     husky: "npm:^9.1.7"
     postcss: "npm:^8.5.6"
     postcss-preset-mantine: "npm:1.18.0"
@@ -7208,6 +7216,7 @@ __metadata:
     "@tabler/icons-react": ^3.34.1
     "@tanstack/react-query": ^5.87.4
     "@tanstack/react-table": ^8.21.3
+    dayjs: ^1.11.19
     react: ^19.1.1
     react-dom: ^19.1.1
     react-router: ^7.0.2
