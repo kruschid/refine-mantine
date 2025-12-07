@@ -13,6 +13,13 @@ export * from "@/components/crud/Create";
 export * from "@/components/crud/Edit";
 export * from "@/components/crud/List";
 export * from "@/components/crud/Show";
+// fields
+export * from "@/components/fields/BooleanField";
+export * from "@/components/fields/DateField";
+export * from "@/components/fields/EmailField";
+export * from "@/components/fields/FileField";
+export * from "@/components/fields/PhoneField";
+export * from "@/components/fields/UrlField";
 // layout
 export * from "@/components/layout/Layout";
 // notification
