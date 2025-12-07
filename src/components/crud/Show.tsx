@@ -1,3 +1,20 @@
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
+import {
+  DeleteButton,
+  type DeleteButtonProps,
+} from "@/components/buttons/DeleteButton";
+import {
+  EditButton,
+  type EditButtonProps,
+} from "@/components/buttons/EditButton";
+import {
+  ListButton,
+  type ListButtonProps,
+} from "@/components/buttons/ListButton";
+import {
+  RefreshButton,
+  type RefreshButtonProps,
+} from "@/components/buttons/RefreshButton";
 import {
   ActionIcon,
   Box,
@@ -19,28 +36,8 @@ import {
   useTranslate,
   useUserFriendlyName,
 } from "@refinedev/core";
-import {
-  type RefineCrudShowProps,
-  RefinePageHeaderClassNames,
-} from "@refinedev/ui-types";
+import type { RefineCrudShowProps } from "@refinedev/ui-types";
 import { IconArrowLeft } from "@tabler/icons-react";
-import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import {
-  DeleteButton,
-  type DeleteButtonProps,
-} from "@/components/buttons/DeleteButton";
-import {
-  EditButton,
-  type EditButtonProps,
-} from "@/components/buttons/EditButton";
-import {
-  ListButton,
-  type ListButtonProps,
-} from "@/components/buttons/ListButton";
-import {
-  RefreshButton,
-  type RefreshButtonProps,
-} from "@/components/buttons/RefreshButton";
 
 export type ShowProps = RefineCrudShowProps<
   GroupProps,
@@ -123,8 +120,6 @@ export const Show: React.FC<ShowProps> = (props) => {
   const editButtonProps: EditButtonProps | undefined = isEditButtonVisible
     ? {
         ...(isLoading ? { disabled: true } : {}),
-        color: undefined,
-        variant: "filled",
         resource: identifier,
         recordItemId: id,
       }
@@ -195,7 +190,7 @@ export const Show: React.FC<ShowProps> = (props) => {
           {breadcrumbComponent}
           <Group gap="xs">
             {buttonBack}
-            <Title order={3} className={RefinePageHeaderClassNames.Title}>
+            <Title order={3}>
               {title ??
                 translate(
                   `${identifier}.titles.show`,
