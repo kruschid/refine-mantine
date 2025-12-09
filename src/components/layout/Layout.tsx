@@ -18,7 +18,7 @@ import {
   Text,
   Tooltip,
   useComputedColorScheme,
-  useMantineColorScheme,
+  useMantineColorScheme
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -62,7 +62,7 @@ export interface LayoutLocale {
 }
 
 export const Layout: React.FC<LayoutProps> = (p) => {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { toggle, close }] = useDisclosure();
   const { title: { icon: defaultIcon, text: defaultText } = {} } =
     useRefineOptions();
   const { data: identity } = useGetIdentity();
@@ -149,6 +149,7 @@ export const Layout: React.FC<LayoutProps> = (p) => {
                 defaultOpenKeys={menu.defaultOpenKeys}
                 key={item.key}
                 selectedKey={menu.selectedKey}
+                onClickLeaf={close}
               />
             ))
           )}
@@ -189,6 +190,7 @@ const MenuItem = (p: {
   item: TreeMenuItem;
   selectedKey?: string;
   defaultOpenKeys: string[];
+  onClickLeaf: () => void;
 }) => {
   const { listUrl } = useNavigation();
   const isSelected = p.item.key === p.selectedKey;
@@ -210,6 +212,7 @@ const MenuItem = (p: {
         defaultOpened={p.defaultOpenKeys.includes(p.item.key ?? "")}
         component={Link as React.FC<{ to: string }>}
         to={listUrl(p.item.name)}
+        onClick={p.item.children.length > 0 ? undefined : p.onClickLeaf}
       >
         {p.item.children.length > 0 ? (
           p.item.children.map(child =>
@@ -218,6 +221,7 @@ const MenuItem = (p: {
               item={child}
               defaultOpenKeys={p.defaultOpenKeys}
               selectedKey={p.selectedKey}
+              onClickLeaf={p.onClickLeaf}
             />
           )
         ) : null}
