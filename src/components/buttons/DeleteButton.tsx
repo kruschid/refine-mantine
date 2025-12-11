@@ -93,6 +93,7 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
       withinPortal={false}
       withOverlay
       disabled={disabled}
+      trapFocus
       {...popoverProps}
     >
       <Popover.Target>
@@ -143,7 +144,6 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
           <Button
             color="red"
             onClick={handleConfirm}
-            autoFocus
             size="xs"
           >
             {confirmOkText ?? defaultConfirmOkLabel}
