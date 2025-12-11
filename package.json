@@ -3,6 +3,10 @@
   "type": "module",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kruschid/refine-mantine.git"
+  },
   "scripts": {
     "build": "tsdown",
     "dev": "vite",
@@ -88,5 +92,6 @@
   },
   "dependencies": {
     "@refinedev/ui-types": "^2.0.1"
-  }
+  },
+  "version": ""
 }
