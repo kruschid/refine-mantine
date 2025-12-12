@@ -90,7 +90,7 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
       opened={opened}
       onChange={handlers.toggle}
       withArrow
-      withinPortal={false}
+      withinPortal
       withOverlay
       disabled={disabled}
       trapFocus
