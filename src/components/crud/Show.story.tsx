@@ -1,6 +1,6 @@
 import { ButtonGroup, getThemeColor, Text, Title, useMantineTheme } from "@mantine/core";
 import { useShow } from "@refinedev/core";
-import { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { CloneButton } from "../buttons/CloneButton";
 import { DeleteButton } from "../buttons/DeleteButton";
 import { EditButton } from "../buttons/EditButton";
@@ -69,7 +69,7 @@ export const Default = () => {
             trueLabel="active"
             falseLabel="inactive"
             falseIconProps={{color: getThemeColor("red", theme)}}
-            iconProps={{color: getThemeColor("green", theme)}}
+            trueIconProps={{color: getThemeColor("green", theme)}}
           />
         </>
       )}
