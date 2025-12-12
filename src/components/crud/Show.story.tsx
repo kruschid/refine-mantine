@@ -1,4 +1,4 @@
-import { ButtonGroup, getThemeColor, Text, Title, useMantineTheme } from "@mantine/core";
+import { Badge, ButtonGroup, getThemeColor, Text, Title, useMantineTheme } from "@mantine/core";
 import { useShow } from "@refinedev/core";
 import type { Meta } from "@storybook/react";
 import { CloneButton } from "../buttons/CloneButton";
@@ -61,6 +61,11 @@ export const Default = () => {
           <Title order={5} mt="sm">
             Skills
           </Title>
+          {user.skills.map(skill => 
+            <Badge key={skill} variant="default">
+              {skill}
+            </Badge>
+          )}
           <Title order={5} mt="sm">
             Status
           </Title>
