@@ -1,5 +1,5 @@
 import type { BoxProps, CardProps, GroupProps } from "@mantine/core";
-import { Box, Card, Group, Stack, Title } from "@mantine/core";
+import { Box, Card, Group, LoadingOverlay, Stack, Title } from "@mantine/core";
 import {
   useRefineContext,
   useResourceParams,
@@ -22,8 +22,13 @@ export type ListProps = RefineCrudListProps<
   GroupProps,
   CardProps,
   GroupProps,
-  BoxProps
+  BoxProps,
+  ListExtraProps
 >;
+
+interface ListExtraProps {
+  isLoading?: boolean;
+}
 
 export const List: React.FC<ListProps> = (props) => {
   const {
@@ -38,6 +43,7 @@ export const List: React.FC<ListProps> = (props) => {
     headerButtons: headerButtonsFromProps,
     breadcrumb: breadcrumbFromProps,
     title,
+    isLoading,
   } = props;
   const translate = useTranslate();
   const { options: { breadcrumb: globalBreadcrumb } = {} } = useRefineContext();
@@ -81,6 +87,7 @@ export const List: React.FC<ListProps> = (props) => {
 
   return (
     <Card p="md" {...wrapperProps}>
+      <LoadingOverlay visible={isLoading ?? false} zIndex={1000} />
       <Group justify="space-between" align="center" {...headerProps}>
         <Stack gap="xs">
           {breadcrumbComponent}

@@ -1,11 +1,11 @@
 import { ActionIcon, Avatar, Badge, Card, Group, Menu, SimpleGrid, Text } from "@mantine/core";
 import { useList } from "@refinedev/core";
-import { IconDots, IconEye, IconPencil, IconTrash } from "@tabler/icons-react";
-import { Default } from "../table/Table.story";
-import { List } from "./List";
+import { IconDots } from "@tabler/icons-react";
+import { DeleteButton } from "../buttons/DeleteButton";
 import { EditButton } from "../buttons/EditButton";
 import { ShowButton } from "../buttons/ShowButton";
-import { DeleteButton } from "../buttons/DeleteButton";
+import { Default as DefaultTableStory } from "../table/Table.story";
+import { List } from "./List";
 
 export default {
   title: 'Crud/List',
@@ -23,7 +23,7 @@ interface UserRecord {
 }
 
 export const Cards = () => {
-  const { result } = useList<UserRecord>({
+  const { result, query: { isLoading } } = useList<UserRecord>({
     resource: "users",
     pagination: {
       pageSize: 100,
@@ -31,7 +31,7 @@ export const Cards = () => {
   });
 
   return (
-    <List resource="users">
+    <List resource="users" isLoading={isLoading}>
       <SimpleGrid cols={{
         xs: 1,
         sm: 3,
@@ -89,5 +89,8 @@ export const Cards = () => {
 export const Table = () => 
   // see Tables/Table for further details
   <List resource="products">
-    <Default />
+    <DefaultTableStory />
   </List>;
+
+export const Loading = () =>
+  <List resource="products" isLoading />;
