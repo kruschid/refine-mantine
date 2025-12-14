@@ -19,6 +19,7 @@ import {
   ActionIcon,
   Box,
   type BoxProps,
+  ButtonGroup,
   Card,
   type CardProps,
   Group,
@@ -145,12 +146,12 @@ export const Show: React.FC<ShowProps> = (props) => {
   const loadingOverlayVisible = isLoading ?? false;
 
   const defaultHeaderButtons = (
-    <>
+    <ButtonGroup>
       {hasList && <ListButton {...listButtonProps} />}
       {isEditButtonVisible && <EditButton {...editButtonProps} />}
       {isDeleteButtonVisible && <DeleteButton {...deleteButtonProps} />}
       <RefreshButton {...refreshButtonProps} />
-    </>
+    </ButtonGroup>
   );
 
   const buttonBack =
