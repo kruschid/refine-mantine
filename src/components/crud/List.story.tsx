@@ -5,6 +5,7 @@ import { DeleteButton } from "../buttons/DeleteButton";
 import { EditButton } from "../buttons/EditButton";
 import { ShowButton } from "../buttons/ShowButton";
 import { Default as DefaultTableStory } from "../table/Table.story";
+import { Empty } from "./Empty";
 import { List } from "./List";
 
 export default {
@@ -94,3 +95,8 @@ export const Table = () =>
 
 export const Loading = () =>
   <List resource="products" isLoading />;
+
+export const EmptyList = () =>
+  <List resource="products">
+    <Empty />
+  </List>;
