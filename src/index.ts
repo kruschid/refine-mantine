@@ -43,6 +43,7 @@ export * from "@/pages/auth/ForgotPasswordPage";
 export * from "@/pages/auth/LoginPage";
 export * from "@/pages/auth/RegisterPage";
 export * from "@/pages/auth/UpdatePasswordPage";
+export * from "@/pages/NotFound";
 // providers
 export type * from "@/providers/authProvider";
 export * from "@/providers/notificationProvider";
