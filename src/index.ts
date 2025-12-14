@@ -16,6 +16,7 @@ export * from "@/components/ColorSchemeToggle";
 // crud
 export * from "@/components/crud/Create";
 export * from "@/components/crud/Edit";
+export * from "@/components/crud/Empty";
 export * from "@/components/crud/List";
 export * from "@/components/crud/Show";
 // fields
