@@ -32,7 +32,7 @@ export const Empty: React.FC<EmptyProps> = ({
         {icon ?? resource?.meta?.icon ?? <IconGhost3Filled />}
       </ThemeIcon>
       <Title order={4} {...titleProps}>
-        {t(`${identifier}.titles.list`, `No ${resourcePlural} Yet`)}
+        {t(`${identifier}.titles.empty`, `No ${resourcePlural} Yet`)}
       </Title>
       <Group>
         <CreateButton {...createButtonProps} />
