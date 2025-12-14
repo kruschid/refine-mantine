@@ -16,6 +16,7 @@ import { theme } from '../src/theme';
 const resources: ResourceProps[] = [{
   name: "products",
   list: "/products",
+  create: "/products/create",
   meta: {
     label: "Products",
     icon: <IconColumns />,
@@ -44,18 +45,19 @@ const resources: ResourceProps[] = [{
     icon: <IconCategory />,
   }
 }, {
-  name: "clients",
-  list: "/clients",
-  meta: {
-    label: "Clients",
-    icon: <IconUsers />,
-  }
-}, {
   name: "invoices",
   list: "/invoices",
   meta: {
     label: "Invoices",
     icon: <IconReceiptEuroFilled />
+  }
+}, {
+  name: "users",
+  list: "/users",
+  create: "/users/create",
+  meta: {
+    label: "Users",
+    icon: <IconUsers />
   }
 }];
 
