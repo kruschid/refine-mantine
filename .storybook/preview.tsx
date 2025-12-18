@@ -67,7 +67,12 @@ const preview: Preview = {
     options: {
       showPanel: false,
     },
-    backgrounds: { disable: true },
+    backgrounds: {
+      disable: true
+    },
+    docs: {
+      codePanel: true,
+    },
   },
   decorators: [
     (Story, _ctx) => (
