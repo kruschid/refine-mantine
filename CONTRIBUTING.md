@@ -3,6 +3,7 @@
 
 See https://github.com/angular/angular/blob/main/contributing-docs/commit-message-guidelines.md
 
+```
 <type>(<scope>): <short summary>
   │       │             │
   │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
@@ -10,7 +11,7 @@ See https://github.com/angular/angular/blob/main/contributing-docs/commit-messag
   │       └─⫸ Commit Scope: components|hooks|pages|providers|utils|common
   │
   └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
-
+```
 The `<type>` and `<summary>` fields are mandatory, the (`<scope>`) field is optional.
 
 ## Type 
