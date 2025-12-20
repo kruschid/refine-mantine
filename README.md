@@ -1,3 +1,5 @@
+[![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/BCGmvSSJBk)
+
 # Refine-Mantine
 
 ## Refine Mantine Components
@@ -25,3 +27,13 @@ npm i refine-mantine
 
 **Early development stage:** The project is actively being developed, and APIs or component structures may change frequently.
 Feedback, suggestions, and contributions are welcome as the project evolves.
+
+## How to Contribute
+
+- leave a star ⭐
+- report a bug 🐞
+- open a pull request 🏗️
+- help others ❤️
+- [buy me a coffee ☕](https://www.buymeacoffee.com/kruschid)
+
+<a href="https://www.buymeacoffee.com/kruschid" target="_blank"><img width="200px" src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" ></a>
