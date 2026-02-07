@@ -28,6 +28,7 @@ export * from "@/components/fields/PhoneField";
 export * from "@/components/fields/UrlField";
 // layout
 export * from "@/components/layout/Layout";
+export * from "@/components/layout/LayoutMinimal";
 // notification
 export * from "@/components/notification/AutoSaveIndicator";
 export * from "@/components/notification/Message";
