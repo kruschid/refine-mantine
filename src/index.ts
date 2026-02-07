@@ -42,6 +42,7 @@ export * from "@/hooks/useOtp";
 export * from "@/pages/auth/ForgotPasswordPage";
 export * from "@/pages/auth/LoginPage";
 export * from "@/pages/auth/RegisterPage";
+export * from "@/pages/auth/RegistrationVerificationPage";
 export * from "@/pages/auth/UpdatePasswordPage";
 export * from "@/pages/NotFound";
 // providers
