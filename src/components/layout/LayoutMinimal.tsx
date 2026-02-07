@@ -62,7 +62,7 @@ export interface LayoutLocale {
   icon?: ReactNode;
 }
 
-export const Layout: React.FC<LayoutProps> = (p) => {
+export const LayoutMinimal: React.FC<LayoutProps> = (p) => {
   const [opened, { toggle, close }] = useDisclosure();
   const { title: { icon: defaultIcon, text: defaultText } = {} } =
     useRefineOptions();

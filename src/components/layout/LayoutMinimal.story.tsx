@@ -1,6 +1,6 @@
 import { Image } from "@mantine/core";
 import type { Meta } from "@storybook/react";
-import { Layout as LayoutMinimal } from "./LayoutMinimal";
+import { LayoutMinimal } from "./LayoutMinimal";
 
 export default {
   title: "Components/LayoutMinimal",
