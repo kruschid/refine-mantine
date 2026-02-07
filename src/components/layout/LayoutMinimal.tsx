@@ -37,6 +37,7 @@ import {
 } from "@refinedev/core";
 import { IconCheck, IconLanguage, IconList, IconLogout, IconMoon, IconSun } from "@tabler/icons-react";
 import { type ReactNode, useCallback } from "react";
+import type { LayoutLocale } from "./Layout";
 
 interface LayoutProps {
   children: ReactNode;
@@ -54,12 +55,6 @@ interface LayoutProps {
   renderHeader?: (toggle: ()=> void) => ReactNode;
   renderMenu?: (params: ReturnType<typeof useMenu>) => ReactNode;
   renderIdentity?: <T extends BaseRecord>(identity: T, logout: () => void) => ReactNode;
-}
-
-export interface LayoutLocale {
-  lang: string;
-  label: string;
-  icon?: ReactNode;
 }
 
 export const LayoutMinimal: React.FC<LayoutProps> = (p) => {
