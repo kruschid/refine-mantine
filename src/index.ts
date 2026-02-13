@@ -45,6 +45,7 @@ export * from "@/pages/auth/LoginPage";
 export * from "@/pages/auth/RegisterPage";
 export * from "@/pages/auth/RegistrationVerificationPage";
 export * from "@/pages/auth/UpdatePasswordPage";
+export * from "@/pages/auth/DefaultTitle";
 export * from "@/pages/NotFound";
 // providers
 export type * from "@/providers/authProvider";
