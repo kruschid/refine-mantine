@@ -49,6 +49,8 @@ export type LoginPageProps = {
   registerLink?: string;
   forgotPasswordLink?: string;
   validate?: FormValidateInput<LoginForm>;
+  onBeforeLogin?: (args: LoginArgs) => void | Promise<void>;
+  onBeforeProviderLogin?: (args: LoginArgs) => void | Promise<void>;
   // customization
   wrapperProps?: StackProps;
   scrollAreaProps?: ScrollAreaProps;
@@ -98,22 +100,26 @@ export const LoginPage: React.FC<LoginPageProps> = (p) => {
     },
   });
 
-  const handleProviderLogin = useCallback((provider: OAuthProvider) => {
-    login.mutate({
+  const handleProviderLogin = useCallback(async (provider: OAuthProvider) => {
+    const loginArgs = {
       providerName: provider.name,
       translate,
       ...p.mutationVariables
-    });
-  }, [login, translate, p.mutationVariables]);
+    };
+    await p.onBeforeProviderLogin?.(loginArgs);
+    login.mutate(loginArgs);
+  }, [login, translate, p.mutationVariables, p.onBeforeProviderLogin]);
 
-  const handleLogin = onSubmit(({ email, password }) => {
-    login.mutate({
+  const handleLogin = onSubmit(async ({ email, password }) => {
+    const loginArgs = {
       email,
       password,
       otpHandler: p.otpHandler,
       translate,
       ...p.mutationVariables,
-    });
+    };
+    await p.onBeforeLogin?.(loginArgs);
+    login.mutate(loginArgs);
   });
 
   return (
