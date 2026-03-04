@@ -178,7 +178,7 @@ export const LayoutMinimal: React.FC<LayoutProps> = (p) => {
           )}
         </AppShell.Section>
 
-        <AppShell.Section {...p.navbarFooterProps} visibleFrom="sm">
+        <AppShell.Section pb="sm" {...p.navbarFooterProps} visibleFrom="sm">
           {p.renderIdentity ? (
             p.renderIdentity(identity, handleLogout)
           ) : (
@@ -212,7 +212,7 @@ export const LayoutMinimal: React.FC<LayoutProps> = (p) => {
           )}
         </AppShell.Section>
 
-        <AppShell.Section {...p.navbarFooterProps} hiddenFrom="sm">
+        <AppShell.Section pb="sm" {...p.navbarFooterProps} hiddenFrom="sm">
           <Stack gap="xs">
             {p.locales && (
               <Locales locales={p.locales} variant="full" label={languageLabel} />
