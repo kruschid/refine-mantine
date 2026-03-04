@@ -82,3 +82,17 @@ export const Default = () => {
   );
 }
 
+export const LongTitle = () => (
+  <Show
+    title="Show user profile details with a very long resource title that should stay on one line without pushing the layout out of place"
+    headerButtons={() =>
+      <ButtonGroup>
+        <RefreshButton />
+        <CloneButton />
+        <EditButton />
+        <DeleteButton />
+      </ButtonGroup>
+    }
+  >
+  </Show>
+);

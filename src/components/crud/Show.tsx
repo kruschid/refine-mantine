@@ -186,12 +186,12 @@ export const Show: React.FC<ShowProps> = (props) => {
   return (
     <Card p="md" {...wrapperProps}>
       <LoadingOverlay visible={loadingOverlayVisible} />
-      <Group justify="space-between" align="center" {...headerProps}>
+      <Group justify="space-between" align="center"  wrap="nowrap" {...headerProps}>
         <Stack gap="xs">
           {breadcrumbComponent}
-          <Group gap="xs">
+          <Group gap="xs" wrap="nowrap">
             {buttonBack}
-            <Title order={3}>
+            <Title order={3} lineClamp={2}>
               {title ??
                 translate(
                   `${identifier}.titles.show`,
