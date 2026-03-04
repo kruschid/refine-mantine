@@ -191,7 +191,7 @@ export const Show: React.FC<ShowProps> = (props) => {
           {breadcrumbComponent}
           <Group gap="xs" wrap="nowrap">
             {buttonBack}
-            <Title order={3} lineClamp={2}>
+            <Title order={3} lineClamp={2} textWrap="balance">
               {title ??
                 translate(
                   `${identifier}.titles.show`,
@@ -203,7 +203,7 @@ export const Show: React.FC<ShowProps> = (props) => {
             </Title>
           </Group>
         </Stack>
-        <Group {...headerButtonProps}>{headerButtons}</Group>
+        <Group {...headerButtonProps} wrap="nowrap">{headerButtons}</Group>
       </Group>
       <Box pt="sm" {...contentProps}>
         {children}
