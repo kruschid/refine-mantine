@@ -144,6 +144,16 @@ export const Show: React.FC<ShowProps> = (props) => {
   };
 
   const loadingOverlayVisible = isLoading ?? false;
+  const defaultTitle = translate(
+    `${identifier}.titles.show`,
+    `Show ${getUserFriendlyName(
+      resource?.meta?.label ?? identifier,
+      "singular",
+    )}`,
+  );
+  const titleContent = title ?? defaultTitle;
+  const titleTooltip =
+    typeof titleContent === "string" ? titleContent : defaultTitle;
 
   const defaultHeaderButtons = (
     <ButtonGroup>
@@ -188,21 +198,16 @@ export const Show: React.FC<ShowProps> = (props) => {
       <LoadingOverlay visible={loadingOverlayVisible} />
       <Stack gap="xs">
         {breadcrumbComponent}
-        <Group justify="space-between" align="center"  wrap="nowrap" {...headerProps}>
+        <Group justify="space-between" align="center" wrap="nowrap" {...headerProps}>
           <Group gap="xs" wrap="nowrap">
             {buttonBack}
-            <Title order={3} lineClamp={1}>
-              {title ??
-                translate(
-                  `${identifier}.titles.show`,
-                  `Show ${getUserFriendlyName(
-                    resource?.meta?.label ?? identifier,
-                    "singular",
-                  )}`,
-                )}
+            <Title title={titleTooltip} order={3} lineClamp={1}>
+              {titleContent}
             </Title>
           </Group>
-          <Group wrap="nowrap" {...headerButtonProps}>{headerButtons}</Group>
+          <Group wrap="nowrap" {...headerButtonProps}>
+            {headerButtons}
+          </Group>
         </Group>
       </Stack>
       <Box pt="sm" {...contentProps}>
