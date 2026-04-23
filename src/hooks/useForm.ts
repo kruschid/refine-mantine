@@ -21,10 +21,7 @@ import { useEffect } from "react";
 
 type FormVariableType<TVariables, TTransformed> = ReturnType<
   NonNullable<
-    UseFormInput<
-      TVariables,
-      (values: TVariables) => TTransformed
-    >["transformValues"]
+    UseFormInput<TVariables, TTransformed>["transformValues"]
   >
 >;
 
@@ -38,7 +35,7 @@ export type UseFormReturnType<
   TResponseError extends HttpError = TError,
 > = UseMantineFormReturnType<
   TVariables,
-  (values: TVariables) => TTransformed
+  TTransformed
 > & {
   refineCore: UseFormReturnTypeCore<
     TQueryFnData,
@@ -73,7 +70,7 @@ export type UseFormProps<
   > & {
     warnWhenUnsavedChanges?: boolean;
   };
-} & UseFormInput<TVariables, (values: TVariables) => TTransformed> & {
+} & UseFormInput<TVariables, TTransformed> & {
     /**
      * Disables server-side validation
      * @default false
@@ -127,7 +124,7 @@ export const useForm = <
 
   const useMantineFormResult = useMantineForm<
     TVariables,
-    (values: TVariables) => TTransformed
+    TTransformed
   >({
     ...rest,
   });

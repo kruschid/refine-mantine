@@ -35,7 +35,8 @@ export const WithFooter = () => (
         Footer content
       </div>
     }
-    footerProps={{ height: 48, withBorder: true }}
+    shellProps={{ footer: { height: 48 } }}
+    footerProps={{ withBorder: true }}
   >
     Hello World
   </LayoutMinimal>

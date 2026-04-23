@@ -1,10 +1,8 @@
-[![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/BCGmvSSJBk)
-
 # Refine-Mantine
 
 ## Refine Mantine Components
 
-This project provides ready-to-use [Mantine v8](https://mantine.dev/) UI components and utilities built for [Refine v5](https://refine.dev/) applications.
+This project provides ready-to-use [Mantine v9](https://mantine.dev/) UI components and utilities built for [Refine v5](https://refine.dev/) applications.
 It aims to accelerate development by offering a collection of prebuilt components such as layouts, CRUD views, tables, buttons, and authentication screens, following both Refine and Mantine best practices.
 
 ### Setup

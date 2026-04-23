@@ -1,5 +1,4 @@
-import { Tooltip } from "@mantine/core";
-import type { TooltipBaseProps } from "@mantine/core/lib/components/Tooltip/Tooltip.types";
+import { Tooltip, type TooltipProps } from "@mantine/core";
 import { IconCircleCheckFilled, IconCircleXFilled, type IconProps, type ReactNode } from "@tabler/icons-react";
 
 export interface BooleanFieldProps {
@@ -10,7 +9,7 @@ export interface BooleanFieldProps {
   falseIcon?: ReactNode;
   trueIconProps?: IconProps;
   falseIconProps?: IconProps;
-  tootlipProps?: TooltipBaseProps;
+  tootlipProps?: Omit<TooltipProps, "children" | "label">;
 }
 
 export const BooleanField: React.FC<BooleanFieldProps> = ({

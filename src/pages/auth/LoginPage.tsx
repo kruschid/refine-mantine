@@ -136,7 +136,7 @@ export const LoginPage: React.FC<LoginPageProps> = (p) => {
               {translate("pages.login.title", "Sign in to your account")}
             </Title>
           )}
-          <Collapse in={!p.otpHandler?.isPending}>
+          <Collapse expanded={!p.otpHandler?.isPending}>
             {p.providers?.length && (
               <Providers
                 providers={p.providers}
@@ -147,7 +147,7 @@ export const LoginPage: React.FC<LoginPageProps> = (p) => {
           </Collapse>
           {p.method !== "oauth" && (
             <form onSubmit={handleLogin}>
-              <Collapse in={!p.otpHandler?.isPending}>
+              <Collapse expanded={!p.otpHandler?.isPending}>
                 <TextInput
                   mb="xs"
                   type="email"
@@ -196,7 +196,7 @@ export const LoginPage: React.FC<LoginPageProps> = (p) => {
                   </Text>
                 }
               </Collapse>
-              <Collapse in={!!p.otpHandler?.isPending}>
+              <Collapse expanded={!!p.otpHandler?.isPending}>
                 <Input.Wrapper
                   label={translate("pages.login.fields.otp", "Enter or paste your auth token")}
                 >

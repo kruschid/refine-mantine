@@ -156,11 +156,13 @@ export const Edit: React.FC<EditProps> = (props) => {
   };
 
   const defaultHeaderButtons = (
-    <ButtonGroup>
-      {autoSaveProps && <AutoSaveIndicator {...autoSaveProps} />}
-      {hasList && <ListButton {...listButtonProps} />}
-      <RefreshButton {...refreshButtonProps} />
-    </ButtonGroup>
+    <>
+    {autoSaveProps && <AutoSaveIndicator {...autoSaveProps} />}
+      <ButtonGroup>
+        {hasList && <ListButton {...listButtonProps} />}
+        <RefreshButton {...refreshButtonProps} />
+      </ButtonGroup>
+    </>
   );
 
   const defaultFooterButtons = (
