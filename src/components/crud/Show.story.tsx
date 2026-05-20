@@ -1,4 +1,4 @@
-import { Badge, ButtonGroup, getThemeColor, Text, Title, useMantineTheme } from "@mantine/core";
+import { ActionIcon, Badge, ButtonGroup, getThemeColor, Text, Title, useMantineTheme } from "@mantine/core";
 import { useShow } from "@refinedev/core";
 import type { Meta } from "@storybook/react";
 import { CloneButton } from "../buttons/CloneButton";
@@ -8,6 +8,7 @@ import { RefreshButton } from "../buttons/RefreshButton";
 import { BooleanField } from "../fields/BooleanField";
 import { EmailField } from "../fields/EmailField";
 import { Show } from "./Show";
+import { IconArrowLeftBar, IconArrowLeftCircle, IconArrowLeftDashed, IconArrowLeftSquare } from "@tabler/icons-react";
 
 interface UsersRecord {
   id: number;
@@ -92,6 +93,18 @@ export const LongTitle = () => (
         <EditButton />
         <DeleteButton />
       </ButtonGroup>
+    }
+  >
+  </Show>
+);
+
+export const CustomBackButton = () => (
+  <Show
+    title="Custom Back Button"
+    goBack={
+      <ActionIcon variant="subtle">
+        <IconArrowLeftDashed />
+      </ActionIcon>
     }
   >
   </Show>

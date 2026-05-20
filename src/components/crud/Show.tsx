@@ -165,13 +165,9 @@ export const Show: React.FC<ShowProps> = (props) => {
   );
 
   const buttonBack =
-    goBackFromProps === (false || null) ? null : (
+    goBackFromProps ?? (
       <ActionIcon variant="subtle" onClick={back}>
-        {typeof goBackFromProps !== "undefined" ? (
-          goBackFromProps
-        ) : (
-          <IconArrowLeft />
-        )}
+        <IconArrowLeft />
       </ActionIcon>
     );
 
